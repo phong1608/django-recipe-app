@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'Car.apps.CarConfig'
+    'user',
+    'core',
+    'rest_framework.authtoken',
+    'drf_spectacular',
+    'recipe',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+AUTH_USER_MODEL = 'core.User'
 
 TEMPLATES = [
     {
@@ -82,7 +87,9 @@ DATABASES = {
     }
 }
 
-
+REST_FRAMEWORK={
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
